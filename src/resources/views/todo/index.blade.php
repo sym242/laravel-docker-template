@@ -1,4 +1,4 @@
-@extends('layouts.base')  
+@extends('layouts.base')
 @section('content')
 <div class="row justify-content-center">
             <div class="col-md-8">
@@ -15,8 +15,13 @@
                       <span class="col-9">{{ $todo->content }}</span>
                     </div>
                   @endforeach
+                  <!-- @dd($todos); -->
                 </div>
               </div>
             </div>
           </div>
-          @endsection
+      </div>
+      </main>
+    </div>
+  </body>
+</html> 
