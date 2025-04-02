@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Todo;   
+use App\Http\Requests\TodoRequest;
+use App\Todo;       
 
 class TodoController extends Controller
 {
@@ -23,7 +23,7 @@ class TodoController extends Controller
     {
         return view('todo.create');
     }
-    public function store(Request $request)
+    public function store(TodoRequest $request)
     {
         $inputs = $request->all();
 
@@ -45,7 +45,7 @@ class TodoController extends Controller
         $todo =  $this->todo->find($id);
         return view('todo.edit', ['todo' => $todo]);
     }
-    public function update(Request $request, $id)
+    public function update(TodoRequest $request, $id)
     {
         $inputs = $request->all();
         // TODO: 更新対象のデータを取得
