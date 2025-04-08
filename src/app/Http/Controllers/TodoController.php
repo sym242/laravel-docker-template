@@ -42,7 +42,7 @@ class TodoController extends Controller
     }
     public function edit($id)
     {
-        $todo =  $this->todo->find($id);
+        $todo = $this->todo->find($id);
         return view('todo.edit', ['todo' => $todo]);
     }
     public function update(TodoRequest $request, $id)
@@ -53,5 +53,11 @@ class TodoController extends Controller
         // TODO: 更新したい値の代入とUPDATE文の実行
         $todo-> fill($inputs)->save(); 
         return redirect()->route('todo.show', $todo->id);
-    }   
+    }
+    public function delete($id)
+    {
+        $todo = $this->todo->find($id);
+        $todo->delete();
+        return redirect()->route('todo.index');
+    }
 }
